@@ -1,18 +1,15 @@
 def removeDuplicates(nums) -> int:
-    last = -10
-    lst = []
-    for i in nums:
-        print(i)
-        if i != last:
-            last = i
+    last = -1000
+    k = 0
+    for i in range(len(nums)):
+        if nums[i] != last:
+            last = nums[i]
+            k += 1
         else:
-            lst.append(nums.index(i))
-            last = i
-        print(nums)
-    for i in lst[::-1]:
-        nums.pop(i)
-    print(nums)
-    return len(list(set(nums)))
+            nums[i] = 1000
+    nums.sort()
+
+    return k
 
 # test
 nums = [1,1,2]
